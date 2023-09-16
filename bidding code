@@ -1,0 +1,29 @@
+#from art import logo
+
+#print(logo)
+
+end_of_bidding = False
+bidders={}
+
+def secret_auction(bidding_record):
+  highest_bid = 0
+  winner = ""
+  for bidder in bidding_record:
+    price_amount = bidding_record[bidder]
+    if price_amount > highest_bid:
+      highest_bid = price_amount
+      winner = bidder 
+  print(f"the winner is {winner} with a price of ${highest_bid}")
+
+while not end_of_bidding:
+  
+  name= input("Enter your name: ")
+  price = int(input("Enter your price amount: $"))
+  bidders[name]=price
+  another_bidder = input("is there another bidder? 'yes' or 'no'").lower()
+
+  if another_bidder == 'no':
+    secret_auction(bidding_record = bidders)
+    end_of_bidding =True
+  elif another_bidder == 'yes':
+    clear()
